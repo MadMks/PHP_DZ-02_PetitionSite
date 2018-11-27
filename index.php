@@ -11,15 +11,13 @@
 	$sth->execute();
 	$petitions = $sth->fetchAll(PDO::FETCH_OBJ);
 
-	print_r($petitions);	
-
-	foreach ($petitions as $petition) {
-		echo("<br>");
-		echo($petition->title);
-	}
+	// print_r($petitions);	
 ?>
 <div>
 	<?php foreach($petitions as $petition) {?>
-		<div><?php $petition->title ?></div>
+		<div><?php echo($petition->title); ?></div>
+		<div><?php echo($petition->author_email); ?></div>
+		<div><?php echo($petition->count); ?></div>
+		<br><br>
 	<?php } ?>
 </div>
