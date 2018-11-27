@@ -1,19 +1,5 @@
 <?php
 session_start();
-	require_once('db.conf.php');
-
-	$sql = 'SELECT petitions.*, users.email AS author_email
-			FROM petitions
-			LEFT JOIN users 
-			ON (petitions.user_id = users.id)
-			';
-
-	$sth = $dbh->prepare($sql);
-	$sth->execute();
-	$petitions = $sth->fetchAll(PDO::FETCH_OBJ);
-
-	// print_r($petitions);	
-
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -23,7 +9,7 @@ session_start();
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="style.css">
+	<!-- <link rel="stylesheet" href="style.css"> -->
 
 	<title>Document</title>
 </head>
