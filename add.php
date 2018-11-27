@@ -1,12 +1,13 @@
 <?php
     if (!empty($_POST)){
-        if (isset($_POST['btnSubmit']) && !empty($_POST['email'])) {
+        if (isset($_POST['btnSubmit']) 
+        && !empty($_POST['btnSubmit'])
+            && !empty($_POST['title'])
+            && !empty($_POST['email'])
+            && !empty($_POST['description'])
+            ) {
             require('db.conf.php');
 
-            // echo $_POST['title'];
-            // echo $_POST['description'];
-
-            // echo($_POST['btnSubmit']);
             
 
             // Есть ли зарегестрированный автор (по емайл).
@@ -17,8 +18,7 @@
             $sth->bindValue(':email', $_POST['email']);
             $sth->execute();
             $userEmail = $sth->fetch(PDO::FETCH_ASSOC);
-            // print('<br>!$userEmail = '.!$userEmail);
-            // print('<br>empty($userEmail) = '.empty($userEmail));
+            
             if (empty($userEmail)) {
                 // Добавление нового автора (емайл).
                 $sth = $dbh->prepare(
@@ -37,7 +37,6 @@
                 $sth->execute();
                 $userEmail = $sth->fetch(PDO::FETCH_ASSOC);
             }
-            // print '<br>User email id: '.$userEmail['id'];
 
             // Добавление петиции.
             $sth = $dbh->prepare(
@@ -56,8 +55,6 @@
                 WHERE title = :title
                 AND user_id = :user_id"
             );
-            // print("<br>title : ".$_POST['title']);
-            // print("<br>userEmail id : ".$userEmail['id']);
             $sth->bindValue(':title', $_POST['title']);
             $sth->bindValue(':user_id', $userEmail['id']);
             $sth->execute();
@@ -70,28 +67,38 @@
                     (user_id, petition_id, activationKey)
                 VALUES (:user_id, :petition_id, :activationKey)"
             );
-            // print("<br>user : ".$userEmail['id']);
-            // print("<br>pet : ".$petition['id']);
             $sth->bindValue(':user_id', $userEmail['id']);
             $sth->bindValue(':petition_id', $petition['id']);
             $sth->bindValue(':activationKey', uniqid());
-            $sth->execute();
+            $result = $sth->execute();
 
-            // echo "<br>result=".$result;
+            $_SESSION['message'] = 'success';
         }
+
         // header('Location: /add.php');
         echo "<script>";
         echo "window.location=document.URL;";
         echo "</script>";
     }
-
+    else {
+        // Вывод формы.
+        if (!empty($_SESSION['message'])) {
+            ShowFormAdd();
+            ShowPetitionSuccess();
+            unset($_SESSION['message']);
+        }
+        else {
+            ShowFormAdd();
+        }
+    }
 ?>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<div class="row">
+<?php 
+    function ShowFormAdd(){
+?>
     <div class="col-6">
-        <form method="post" action="add.php">
+        <form method="post">
 
             <div class="form-group">
                 <input type="text" class="form-control" name="title" placeholder="Title">
@@ -107,13 +114,21 @@
 
             <button class="btn btn-primary" type="submit" 
             name="btnSubmit" value="Add">Add</button>
+
         </form>
     </div>
+<?php  
+    }
 
+    function ShowPetitionSuccess(){
+?>
     <div class="col-6">
-        <?php if ($result){?>
-            <div>Петиция добавлена. подтвердите по емайл</div>
-        <?php }?>
+            <!-- TODO: на почту отправлено письмо для подтверждения -->
+        <div class="alert alert-success">
+            На почту отправлено письмо ...
+        </div>
     </div>
+<?php 
+    }
+?>
 
-</div>
