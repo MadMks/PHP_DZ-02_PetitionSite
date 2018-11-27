@@ -33,6 +33,7 @@
                     WHERE email = :email"
                 );
                 $sth->bindValue(':email', $_POST['email']);
+
                 $sth->execute();
                 $userEmail = $sth->fetch(PDO::FETCH_ASSOC);
             }
@@ -47,13 +48,34 @@
             $sth->bindValue(':user_id', $userEmail['id']);
             $sth->bindValue(':description', $_POST['description']);
 
-            
-            
-            $result = $sth->execute();
-            if (!$result) {
-                echo '<br>'."\nPDO::errorInfo():\n";
-                print_r($sth->errorInfo());
-            }
+            $sth->execute();
+
+            // Получение id петиции.
+            $sth = $dbh->prepare(
+                "SELECT * FROM petitions
+                WHERE title = :title
+                AND user_id = :user_id"
+            );
+            // print("<br>title : ".$_POST['title']);
+            // print("<br>userEmail id : ".$userEmail['id']);
+            $sth->bindValue(':title', $_POST['title']);
+            $sth->bindValue(':user_id', $userEmail['id']);
+            $sth->execute();
+
+            $petition = $sth->fetch(PDO::FETCH_ASSOC);
+
+            // Добавление петиции в таблицу состояний.
+            $sth = $dbh->prepare(
+                "INSERT INTO state_of_petitions 
+                    (user_id, petition_id, activationKey)
+                VALUES (:user_id, :petition_id, :activationKey)"
+            );
+            // print("<br>user : ".$userEmail['id']);
+            // print("<br>pet : ".$petition['id']);
+            $sth->bindValue(':user_id', $userEmail['id']);
+            $sth->bindValue(':petition_id', $petition['id']);
+            $sth->bindValue(':activationKey', uniqid());
+            $sth->execute();
 
             // echo "<br>result=".$result;
         }
