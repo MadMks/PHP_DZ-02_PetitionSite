@@ -67,10 +67,17 @@
                     (user_id, petition_id, activationKey)
                 VALUES (:user_id, :petition_id, :activationKey)"
             );
+            $token = uniqid();
             $sth->bindValue(':user_id', $userEmail['id']);
             $sth->bindValue(':petition_id', $petition['id']);
-            $sth->bindValue(':activationKey', uniqid());
+            $sth->bindValue(':activationKey', $token);
             $result = $sth->execute();
+
+            if ($result) {
+                // TODO: отправка email
+                echo $token;
+                socketmail();
+            }
 
             $_SESSION['message'] = 'success';
         }
@@ -130,5 +137,15 @@
     </div>
 <?php 
     }
+
+
+    function socketmail(){
+            if (mail("mks59k@gmail.com", "Заказ с сайта", "ФИО:asd. E-mail: " ,"From: example2@mail.ru \r\n"))
+            { 
+                echo "сообщение успешно отправлено"; 
+            } else { 
+                echo "при отправке сообщения возникли ошибки"; 
+            }
+        }
 ?>
 
