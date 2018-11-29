@@ -12,7 +12,7 @@ include_once ("functions.php");
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<!-- <link rel="stylesheet" href="style.css"> -->
 
-	<title>Document</title>
+	<title>Петиции</title>
 </head>
 <body>
 

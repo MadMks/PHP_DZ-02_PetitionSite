@@ -106,7 +106,7 @@
         <form method="post">
 
             <div class="form-group">
-                <input type="text" class="form-control" name="title" placeholder="Title">
+                <input type="text" class="form-control" name="title" placeholder="Название">
             </div>
 
             <div class="form-group">
@@ -114,7 +114,7 @@
             </div>
             <div class="form-group">
                 <textarea name="description" class="form-control"
-                          placeholder="Description"></textarea>
+                          placeholder="Описание"></textarea>
             </div>
 
             <button class="btn btn-primary" type="submit" 

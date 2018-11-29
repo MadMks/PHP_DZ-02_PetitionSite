@@ -4,8 +4,6 @@
 
     if (isset($_GET['id'])) {
 
-//        include_once ("db.conf.php");
-
         $petitionId = $_GET['id'];
 
         $sth = $dbh->prepare(
@@ -41,18 +39,6 @@
         else{
             SessionUpdate('exists');
         }
-
-//        if (!IsEmailExists($_POST['subsEmail'])){
-//
-//            if (AddNewEmail($_POST['subsEmail'])){
-//                SignThePetition($_POST['subsPetitionId']);
-//            }
-//
-//            SessionUpdate('success');
-//        }
-//        else{
-//            SessionUpdate('exists');
-//        }
     }
 ?>
 

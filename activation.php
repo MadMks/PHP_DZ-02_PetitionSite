@@ -18,7 +18,6 @@
             if ($petitionState['activationKey'] == $token) {
 
                 if (ActivationOfThePetition($petitionId)){
-//                    SessionUpdate('success');
                     ?>
                     <div class="alert alert-success mt-3">
                         Петиция подтверждена.
