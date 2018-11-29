@@ -21,10 +21,18 @@
     <div class="card mb-3">
         <div class="card-body">
             <h5 class="card-title"><?php echo($petition->title); ?></h5>
-            <div class="card-subtitle">Автор: <?php echo($petition->author_email); ?></div>
-            <div class="card-subtitle">Подписей: <?php echo($petition->countOfVotes); ?></div>
-            <a href="index.php?page=3&id=<?php echo($petition->id); ?>">
-                Описание</a>
+            <div class="clearfix border-bottom mb-3"></div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="card-subtitle mb-1">Автор: <?php echo($petition->author_email); ?></div>
+                    <div class="card-subtitle">Подписей: <?php echo($petition->countOfVotes); ?></div>
+                </div>
+                <div class="col-4">
+                    <a href="index.php?page=3&id=<?php echo($petition->id); ?>"
+                       class="btn btn-info float-right">
+                        Описание</a>
+                </div>
+            </div>
         </div>
     </div>
     <?php } ?>
