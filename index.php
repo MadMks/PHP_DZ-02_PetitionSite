@@ -35,6 +35,7 @@ session_start();
 					{
 						if($_GET['page']==1) include_once("petitions.php");
 						if($_GET['page']==2) include_once("add.php");
+						if($_GET['page']==3) include_once("petition.php");
 					}
 					else{
 						include_once("petitions.php");
