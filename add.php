@@ -110,7 +110,7 @@
             </div>
 
             <div class="form-group">
-                <input type="text" name="email" class="form-control" placeholder="Email">
+                <input type="email" name="email" class="form-control" placeholder="Email">
             </div>
             <div class="form-group">
                 <textarea name="description" class="form-control"
