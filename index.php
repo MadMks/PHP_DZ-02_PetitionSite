@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once ("functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -36,6 +37,7 @@ session_start();
 						if($_GET['page']==1) include_once("petitions.php");
 						if($_GET['page']==2) include_once("add.php");
 						if($_GET['page']==3) include_once("petition.php");
+                        if($_GET['page']==4) include_once("activation.php");
 					}
 					else{
 						include_once("petitions.php");

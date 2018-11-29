@@ -16,15 +16,28 @@
 
         if (!empty($petitionState)) {
             if ($petitionState['activationKey'] == $token) {
-                // Активация петиции.
-                $sth = $dbh->prepare(
-                    'UPDATE state_of_petitions
-                    SET active = 1
-                    WHERE petition_id = :petitionId'
-                );
-                $sth->bindValue(':petitionId', $petitionId);
-                $sth->execute();
+
+                if (ActivationOfThePetition($petitionId)){
+//                    SessionUpdate('success');
+                    ?>
+                    <div class="alert alert-success mt-3">
+                        Петиция подтверждена.
+                    </div>
+                    <?php
+                }
+                else{
+                    header('Location: index.php?page=1');
+                }
+            }
+            else{
+                ?>
+                <div class="alert alert-warning mt-3">
+                    Неверный токен.
+                </div>
+                <?php
             }
         }
     }
 ?>
+
+

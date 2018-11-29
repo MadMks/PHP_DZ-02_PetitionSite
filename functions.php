@@ -116,4 +116,17 @@
         $userId = $sth->fetch(PDO::FETCH_ASSOC);
         return $userId['id'];
     }
+
+    function ActivationOfThePetition($petitionId){
+        global $dbh;
+
+        // Активация петиции.
+        $sth = $dbh->prepare(
+            'UPDATE state_of_petitions
+                    SET active = 1
+                    WHERE petition_id = :petitionId'
+        );
+        $sth->bindValue(':petitionId', $petitionId);
+        return $sth->execute();
+    }
 ?>

@@ -74,7 +74,6 @@
             $result = $sth->execute();
 
             if ($result) {
-                echo $token;
                 sendMail($userEmail['email'], $petition['id'], $token);
             }
 
@@ -119,7 +118,7 @@
             </div>
 
             <button class="btn btn-primary" type="submit" 
-            name="btnSubmit" value="Add">Add</button>
+            name="btnSubmit" value="Add">Добавить</button>
 
         </form>
     </div>
@@ -140,8 +139,9 @@
     function sendMail($email, $petitiionId, $token){
 
         $message = 'Перейдите по'
-            .'<a href="http://localhost:81/activation.php'
-            ."?id=$petitiionId&token=$token"
+            .'<a href="http://localhost:81/index.php'
+            .'?page=4'
+            ."&id=$petitiionId&token=$token"
             .'">'
             .'ссылке</a>,'
             .'для активации петиции.';
