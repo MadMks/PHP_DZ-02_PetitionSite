@@ -32,17 +32,27 @@
         && !empty($_POST['subsPetitionId'])
         && !empty($_POST['subsEmail'])) {
 
-        if (!IsEmailExists($_POST['subsEmail'])){
+        if (!IsAlreadySigned($_POST['subsPetitionId'], $_POST['subsEmail'])){
 
-            if (AddNewEmail($_POST['subsEmail'])){
-                SignThePetition($_POST['subsPetitionId']);
-            }
+            SignThePetition($_POST['subsPetitionId'], $_POST['subsEmail']);
 
             SessionUpdate('success');
         }
         else{
             SessionUpdate('exists');
         }
+
+//        if (!IsEmailExists($_POST['subsEmail'])){
+//
+//            if (AddNewEmail($_POST['subsEmail'])){
+//                SignThePetition($_POST['subsPetitionId']);
+//            }
+//
+//            SessionUpdate('success');
+//        }
+//        else{
+//            SessionUpdate('exists');
+//        }
     }
 ?>
 
