@@ -76,7 +76,7 @@
             if ($result) {
                 // TODO: отправка email
                 echo $token;
-                socketmail();
+                sendMail($userEmail['email'], $petition['id'], $token);
             }
 
             $_SESSION['message'] = 'success';
@@ -132,15 +132,19 @@
     <div class="col-6">
             <!-- TODO: на почту отправлено письмо для подтверждения -->
         <div class="alert alert-success">
-            На почту отправлено письмо ...
+            На почту отправлено письмо для подтверждения...
         </div>
     </div>
 <?php 
     }
 
 
-    function socketmail(){
-            if (mail("mks59k@gmail.com", "Заказ с сайта", "ФИО:asd. E-mail: " ,"From: example2@mail.ru \r\n"))
+    function sendMail($email, $petitiionId, $token){
+            if (mail(
+                $email, 
+                "Подтверждение петиции", 
+                "Перейдите по ссылке для активации петиции",
+                "From: info@max.itstep.fun \r\n"))
             { 
                 echo "сообщение успешно отправлено"; 
             } else { 
