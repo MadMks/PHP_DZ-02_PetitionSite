@@ -140,16 +140,24 @@
 
 
     function sendMail($email, $petitiionId, $token){
-            if (mail(
-                $email, 
-                "Подтверждение петиции", 
-                "Перейдите по ссылке для активации петиции",
-                "From: info@max.itstep.fun \r\n"))
-            { 
-                echo "сообщение успешно отправлено"; 
-            } else { 
-                echo "при отправке сообщения возникли ошибки"; 
-            }
+
+        $message = 'Перейдите по'
+            .'<a href="http://localhost:81/activation.php'
+            ."?id=$petitiionId&token=$token"
+            .'">'
+            .'ссылке</a>,'
+            .'для активации петиции.';
+
+        if (mail(
+            $email, 
+            "Подтверждение петиции", 
+            $message,
+            "From: info@max.itstep.fun \r\n"))
+        { 
+            echo "сообщение успешно отправлено"; 
+        } else { 
+            echo "при отправке сообщения возникли ошибки"; 
         }
+    }
 ?>
 
