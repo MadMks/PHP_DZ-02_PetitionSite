@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71ddf987-8b99-43f8-bfaa-113b31a65a88" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/activation.php" beforeDir="false" afterPath="$PROJECT_DIR$/activation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,11 +56,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1111">
-              <caret line="148" column="17" lean-forward="true" selection-start-line="148" selection-start-column="17" selection-end-line="148" selection-end-column="17" />
+            <state relative-caret-position="2073">
+              <caret line="120" column="34" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -104,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="128" column="52" selection-start-line="128" selection-start-column="52" selection-end-line="128" selection-end-column="52" />
+            <state relative-caret-position="288">
+              <caret line="99" column="18" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -119,6 +116,8 @@
     <findStrings>
       <find>IsAlreadySigned</find>
       <find>ShowActivateStatus</find>
+      <find>value</find>
+      <find>ReserveEmailForPetition</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -129,14 +128,14 @@
       <list>
         <option value="$PROJECT_DIR$/petitions.php" />
         <option value="$PROJECT_DIR$/petition.php" />
-        <option value="$PROJECT_DIR$/functions.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/activation.php" />
         <option value="$PROJECT_DIR$/add.php" />
+        <option value="$PROJECT_DIR$/functions.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="-7" />
     <option name="width" value="1004" />
@@ -167,7 +166,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -194,15 +193,15 @@
       <workItem from="1543330115015" duration="1873000" />
       <workItem from="1543345862695" duration="430000" />
       <workItem from="1543346368230" duration="2662000" />
-      <workItem from="1543492265405" duration="19951000" />
+      <workItem from="1543492265405" duration="21412000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24916000" />
+    <option name="totallyTimeSpent" value="26377000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1038" height="752" extended-state="7" />
+    <frame x="-7" y="-7" width="1038" height="752" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16904277" />
@@ -250,13 +249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="128" column="52" selection-start-line="128" selection-start-column="52" selection-end-line="128" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/petition.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -271,10 +263,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/code/git/step_repos/php/DZ/Php_DZ-02_PetitionSite/add.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/add.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1111">
-          <caret line="148" column="17" lean-forward="true" selection-start-line="148" selection-start-column="17" selection-end-line="148" selection-end-column="17" />
+        <state relative-caret-position="2073">
+          <caret line="120" column="34" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="99" column="18" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="18" />
         </state>
       </provider>
     </entry>

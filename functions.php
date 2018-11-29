@@ -97,7 +97,7 @@
 
         $sth = $dbh->prepare(
             'INSERT INTO list_of_votes (user_id, petition_id) 
-            VALUE (:userId, :pId)'
+            VALUES (:userId, :pId)'
         );
         $sth->bindValue(':userId', $userId);
         $sth->bindValue(':pId', $petitionId);
