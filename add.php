@@ -74,7 +74,6 @@
             $result = $sth->execute();
 
             if ($result) {
-                // TODO: отправка email
                 echo $token;
                 sendMail($userEmail['email'], $petition['id'], $token);
             }
@@ -130,7 +129,6 @@
     function ShowPetitionSuccess(){
 ?>
     <div class="col-6">
-            <!-- TODO: на почту отправлено письмо для подтверждения -->
         <div class="alert alert-success">
             На почту отправлено письмо для подтверждения...
         </div>
