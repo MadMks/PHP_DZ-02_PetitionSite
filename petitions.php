@@ -4,7 +4,10 @@
 	$sql = 'SELECT petitions.*, users.email AS author_email
 			FROM petitions
 			LEFT JOIN users 
-			ON (petitions.user_id = users.id)
+			  ON (petitions.user_id = users.id)
+            LEFT JOIN state_of_petitions AS statePetition
+              ON (petitions.id = statePetition.petition_id)
+            WHERE statePetition.active = 1
 			';
 
 	$sth = $dbh->prepare($sql);
